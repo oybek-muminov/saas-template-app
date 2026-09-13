@@ -1,26 +1,87 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: #0b0b10;
+  --color-surface: #15161d;
+  --color-surface-2: #1c1d27;
+  --color-border: #26262f;
+  --color-border-strong: #33333f;
+  --color-foreground: #edecf0;
+  --color-muted: #8d8d98;
+  --color-muted-2: #626270;
+  --color-accent: #5f5ae8;
+  --color-accent-hover: #726dee;
+  --color-accent-foreground: #ffffff;
+  --color-accent-soft: rgba(95, 90, 232, 0.12);
+  --color-accent-border: rgba(95, 90, 232, 0.35);
+  --color-positive: #3ecf8e;
+  --color-warning: #e8a33d;
+
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+
+  --font-body: var(--font-body);
+  --font-display: var(--font-display);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+  }
+
+  body {
+    background: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body), Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display), Arial, Helvetica, sans-serif;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+  }
+
+  ::selection {
+    background: rgba(95, 90, 232, 0.35);
+    color: #f5f4ff;
+  }
+
+  :focus-visible {
+    outline: 2px solid #5f5ae8;
+    outline-offset: 2px;
+  }
+
+  a {
+    text-decoration: none;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .bg-grid {
+    background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
