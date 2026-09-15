@@ -22,7 +22,7 @@ const iconMap = {
 
 export function Features() {
   return (
-    <section id="features" className="border-b border-[#26262F] py-20 sm:py-24">
+    <section id="features" className="scroll-mt-24 border-b border-[#26262F] py-20 sm:py-24">
       <Container>
         <div className="mx-auto max-w-3xl text-center">
           <p className="mb-4 text-xs font-medium uppercase tracking-[0.2em] text-[#8D8D98]">Features</p>

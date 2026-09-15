@@ -1,4 +1,4 @@
-import type { Feature, PricingPlan } from "@/types";
+import type { Feature, FaqItem, FooterColumn, PricingPlan, Testimonial } from "@/types";
 
 export const featureData: Feature[] = [
   {
@@ -90,3 +90,146 @@ export const pricingPlans: PricingPlan[] = [
     cta: "Contact sales",
   },
 ];
+
+export const testimonialData: Testimonial[] = [
+  {
+    name: "Maya Chen",
+    role: "Engineering Manager",
+    company: "Northwind Systems",
+    avatar: "MC",
+    rating: 5,
+    quote:
+      "Before Arcline we were piecing incident timelines together from three different Slack channels. Now the timeline is just already there when the page fires.",
+  },
+  {
+    name: "Diego Alvarez",
+    role: "Site Reliability Lead",
+    company: "Corvid Labs",
+    avatar: "DA",
+    rating: 5,
+    quote:
+      "The on-call handoff notes alone saved us from at least two repeat incidents this quarter. Nobody's starting a shift blind anymore.",
+  },
+  {
+    name: "Priya Raman",
+    role: "VP Engineering",
+    company: "Haldane Robotics",
+    avatar: "PR",
+    rating: 4,
+    quote:
+      "Deploy analytics finally gave us a real lead-time number to bring to leadership, instead of a gut feeling.",
+  },
+  {
+    name: "Tom Whitfield",
+    role: "DevOps Engineer",
+    company: "Fenbrook",
+    avatar: "TW",
+    rating: 5,
+    quote:
+      "Setup took an afternoon, not a quarter. We had Slack and PagerDuty wired in before lunch.",
+  },
+  {
+    name: "Sara Kim",
+    role: "Engineering Director",
+    company: "Petrel Analytics",
+    avatar: "SK",
+    rating: 5,
+    quote:
+      "It's the first dashboard our whole team actually opens without being told to.",
+  },
+  {
+    name: "James Okafor",
+    role: "CTO",
+    company: "Ironframe",
+    avatar: "JO",
+    rating: 4,
+    quote:
+      "The audit log alone justified the Enterprise plan for our compliance review.",
+  },
+];
+
+export const faqData: FaqItem[] = [
+  {
+    question: "Can I try Arcline for free?",
+    answer:
+      "Yes. The Free plan works indefinitely for one team with 7 days of history, no credit card required to start.",
+  },
+  {
+    question: "How does billing work?",
+    answer:
+      "Pro is billed per seat, monthly or yearly. Enterprise is invoiced on a custom contract negotiated with your team.",
+  },
+  {
+    question: "Can I cancel anytime?",
+    answer:
+      "Yes — cancel from billing settings whenever you like. You keep access through the end of the period you've already paid for.",
+  },
+  {
+    question: "Do you offer annual billing?",
+    answer:
+      "Yes, yearly billing saves about 20% compared to paying monthly, shown automatically at checkout.",
+  },
+  {
+    question: "Is my data secure?",
+    answer:
+      "Data is encrypted in transit and at rest. Enterprise plans add SSO/SCIM and a full audit log of who accessed what.",
+  },
+  {
+    question: "Can I integrate my existing tools?",
+    answer:
+      "Arcline connects natively to Slack, PagerDuty, GitHub, Datadog, Jira, and Linear, with more integrations added regularly.",
+  },
+  {
+    question: "Do you offer enterprise support?",
+    answer:
+      "Enterprise plans include a dedicated support engineer and hands-on onboarding for your team.",
+  },
+  {
+    question: "How quickly can I get started?",
+    answer:
+      "Most teams connect their first integration and see live deploy/incident data within an hour.",
+  },
+];
+
+const siteConfig = {
+  email: "hello@arcline.example.com",
+};
+
+export const footerColumns: FooterColumn[] = [
+  {
+    title: "Product",
+    links: [
+      { label: "Features", href: "#features" },
+      { label: "Pricing", href: "#pricing" },
+      { label: "Integrations", href: "/integrations" },
+      { label: "Changelog", href: "/changelog" },
+    ],
+  },
+  {
+    title: "Company",
+    links: [
+      { label: "About", href: "/about" },
+      { label: "Careers", href: "/careers" },
+      { label: "Contact", href: `mailto:${siteConfig.email}` },
+      { label: "Blog", href: "/blog" },
+    ],
+  },
+  {
+    title: "Resources",
+    links: [
+      { label: "Documentation", href: "/docs" },
+      { label: "Help Center", href: "/help" },
+      { label: "Community", href: "/community" },
+      { label: "Status", href: "/status" },
+    ],
+  },
+  {
+    title: "Legal",
+    links: [
+      { label: "Privacy", href: "/privacy" },
+      { label: "Terms", href: "/terms" },
+      { label: "Security", href: "/security" },
+    ],
+  },
+];
+

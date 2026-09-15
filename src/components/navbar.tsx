@@ -17,16 +17,46 @@ const navItems = [
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
-    onScroll();
+    const previousScrollY = { current: window.scrollY };
+    let frameId: number | null = null;
+
+    const updateNavbar = () => {
+      const currentScrollY = window.scrollY;
+      const scrollingDown = currentScrollY > previousScrollY.current;
+
+      setScrolled(currentScrollY > 8);
+      if (currentScrollY <= 80 || !scrollingDown) {
+        setHidden(false);
+      } else if (!mobileMenuOpen) {
+        setHidden(true);
+      }
+
+      previousScrollY.current = currentScrollY;
+      frameId = null;
+    };
+
+    const onScroll = () => {
+      if (frameId === null) {
+        frameId = window.requestAnimationFrame(updateNavbar);
+      }
+    };
+
+    updateNavbar();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (frameId !== null) window.cancelAnimationFrame(frameId);
+    };
+  }, [mobileMenuOpen]);
+
+  const navbarHidden = hidden && !mobileMenuOpen;
 
   return (
-    <header className="sticky top-0 z-50">
+    <header className={`sticky top-0 z-50 transition-transform duration-200 ${navbarHidden ? "-translate-y-full" : "translate-y-0"}`}>
       <div
         className={`transition-all duration-300 ${
           scrolled
@@ -42,11 +72,12 @@ export function Navbar() {
             <span className="font-semibold tracking-[-0.05em] text-lg">{siteConfig.name}</span>
           </Link>
 
-          <nav className="hidden items-center gap-8 md:flex">
+          <nav aria-hidden={navbarHidden} className="hidden items-center gap-8 md:flex">
             {navItems.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
+                tabIndex={navbarHidden ? -1 : undefined}
                 className="text-sm text-[#8D8D98] transition-colors hover:text-[#EDECF0]"
               >
                 {item.label}
@@ -64,7 +95,7 @@ export function Navbar() {
           </div>
 
           <div className="md:hidden">
-            <MobileMenu />
+            <MobileMenu onOpenChange={setMobileMenuOpen} />
           </div>
         </Container>
       </div>

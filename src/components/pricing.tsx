@@ -13,7 +13,7 @@ export function Pricing() {
   const [yearly, setYearly] = useState(false);
 
   return (
-    <section id="pricing" className="border-b border-[#26262F] bg-[#0F1016] py-20 sm:py-24">
+    <section id="pricing" className="scroll-mt-24 border-b border-[#26262F] bg-[#0F1016] py-20 sm:py-24">
       <Container>
         <div className="mx-auto max-w-2xl text-center">
           <p className="mb-4 text-xs font-medium uppercase tracking-[0.2em] text-[#8D8D98]">Pricing</p>
@@ -31,13 +31,13 @@ export function Pricing() {
 
         <div className="mt-12 grid gap-6 lg:grid-cols-3">
           {pricingPlans.map((plan) => {
-            const price = plan.name === "Free" ? "$0" : yearly ? `$${plan.yearlyPrice}` : `$${plan.monthlyPrice}`;
-            const billing = plan.name === "Enterprise" ? "Custom" : yearly ? "/seat /mo billed yearly" : "/seat /mo";
+            const price = yearly ? plan.yearlyPrice : plan.monthlyPrice;
+            const billing = yearly ? "/seat /mo billed yearly" : "/seat /mo";
 
             return (
               <div
                 key={plan.name}
-                className={`flex h-full flex-col rounded-[24px] border p-6 ${
+                className={`flex h-full min-w-0 flex-col rounded-[24px] border p-6 ${
                   plan.popular
                     ? "border-[#5F5AE8]/40 bg-[#15161D] shadow-[0_0_0_1px_rgba(95,90,232,0.2)]"
                     : "border-[#26262F] bg-[#101117]"
@@ -56,11 +56,15 @@ export function Pricing() {
                 </div>
 
                 <div className="mt-8 flex items-end gap-2">
-                  <span className="text-4xl font-semibold tracking-[-0.06em] text-[#EDECF0]">{price}</span>
-                  {plan.name !== "Enterprise" ? (
-                    <span className="pb-1 text-sm text-[#8D8D98]">{billing}</span>
+                  {price === null ? (
+                    <span className="text-4xl font-semibold tracking-[-0.06em] text-[#EDECF0]">Custom</span>
                   ) : (
-                    <span className="pb-1 text-sm text-[#8D8D98]">Custom</span>
+                    <>
+                      <span className="text-4xl font-semibold tracking-[-0.06em] text-[#EDECF0]">${price}</span>
+                      {plan.name !== "Free" ? (
+                        <span className="pb-1 text-sm text-[#8D8D98]">{billing}</span>
+                      ) : null}
+                    </>
                   )}
                 </div>
 

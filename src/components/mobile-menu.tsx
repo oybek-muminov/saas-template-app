@@ -2,6 +2,7 @@
 
 import { Menu } from "lucide-react";
 import { useState } from "react";
+import type { Dispatch, SetStateAction } from "react";
 
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -13,11 +14,16 @@ const navItems = [
   { label: "Resources", href: "/docs" },
 ];
 
-export function MobileMenu() {
+export function MobileMenu({ onOpenChange }: { onOpenChange?: Dispatch<SetStateAction<boolean>> }) {
   const [open, setOpen] = useState(false);
 
+  const handleOpenChange = (nextOpen: boolean) => {
+    setOpen(nextOpen);
+    onOpenChange?.(nextOpen);
+  };
+
   return (
-    <Sheet open={open} onOpenChange={setOpen}>
+    <Sheet open={open} onOpenChange={handleOpenChange}>
       <SheetTrigger asChild>
         <Button
           variant="ghost"
