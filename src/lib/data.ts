@@ -1,4 +1,13 @@
-import type { Feature, FaqItem, FooterColumn, PricingPlan, Testimonial } from "@/types";
+import type { Feature, FaqItem, FooterColumn, NavItem, PricingPlan, Testimonial } from "@/types";
+
+import { siteConfig } from "@/lib/site-config";
+
+export const navItems: NavItem[] = [
+  { label: "Product", href: "#product" },
+  { label: "Features", href: "#features" },
+  { label: "Pricing", href: "#pricing" },
+  { label: "Resources", href: "/docs" },
+];
 
 export const featureData: Feature[] = [
   {
@@ -190,10 +199,6 @@ export const faqData: FaqItem[] = [
       "Most teams connect their first integration and see live deploy/incident data within an hour.",
   },
 ];
-
-const siteConfig = {
-  email: "hello@arcline.example.com",
-};
 
 export const footerColumns: FooterColumn[] = [
   {

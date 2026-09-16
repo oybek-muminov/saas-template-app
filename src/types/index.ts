@@ -3,12 +3,20 @@ export type NavItem = {
   href: string;
 };
 
+export type FeatureIcon =
+  | "chart"
+  | "timeline"
+  | "handoff"
+  | "integrations"
+  | "shield"
+  | "status";
+
 export type Feature = {
   id: string;
   title: string;
   description: string;
   size: "sm" | "lg";
-  icon: string;
+  icon: FeatureIcon;
 };
 
 export type PricingPlan = {

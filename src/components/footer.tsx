@@ -12,25 +12,25 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-[#26262F] bg-[#0B0B10] py-14">
+    <footer className="border-t border-border bg-background py-14">
       <Container>
         <h2 className="sr-only">Footer</h2>
-        <div className="grid gap-10 md:grid-cols-[1.3fr_1fr_1fr_1fr]">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
           <div>
-            <div className="flex items-center gap-3 text-[#EDECF0]">
-              <span className="flex h-8 w-8 items-center justify-center rounded-md bg-[#5F5AE8] text-sm font-semibold text-white">
+            <div className="flex items-center gap-3 text-foreground">
+              <span className="flex h-8 w-8 items-center justify-center rounded-md bg-accent text-sm font-semibold text-accent-foreground">
                 A
               </span>
               <span className="font-semibold tracking-[-0.05em] text-lg">{siteConfig.name}</span>
             </div>
-            <p className="mt-4 max-w-xs text-sm leading-7 text-[#8D8D98]">{siteConfig.description}</p>
+            <p className="mt-4 max-w-xs text-sm leading-7 text-muted">{siteConfig.description}</p>
             <div className="mt-6 flex items-center gap-3">
               {socialLinks.map(({ label, href, icon: Icon }) => (
                 <a
                   key={label}
                   href={href}
                   aria-label={label}
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-[#26262F] bg-[#101117] text-[#8D8D98] transition-colors hover:border-[#5F5AE8]/35 hover:text-[#EDECF0]"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-surface-inset text-muted transition-colors hover:border-accent/35 hover:text-foreground"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -42,8 +42,8 @@ export function Footer() {
 
           {footerColumns.map((column) => (
             <div key={column.title}>
-              <h3 className="text-sm font-medium uppercase tracking-[0.16em] text-[#8D8D98]">{column.title}</h3>
-              <ul className="mt-4 space-y-3 text-sm text-[#EDECF0]">
+              <h3 className="text-sm font-medium uppercase tracking-[0.16em] text-muted">{column.title}</h3>
+              <ul className="mt-4 space-y-3 text-sm text-foreground">
                 {column.links.map((link) => (
                   <li key={link.label}>
                     <a href={link.href} className="transition-colors hover:text-white">
@@ -56,7 +56,7 @@ export function Footer() {
           ))}
         </div>
 
-        <div className="mt-12 border-t border-[#26262F] pt-6 text-sm text-[#8D8D98]">
+        <div className="mt-12 border-t border-border pt-6 text-sm text-muted">
           © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
         </div>
       </Container>

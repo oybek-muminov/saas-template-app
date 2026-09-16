@@ -13,14 +13,14 @@ export function Pricing() {
   const [yearly, setYearly] = useState(false);
 
   return (
-    <section id="pricing" className="scroll-mt-24 border-b border-[#26262F] bg-[#0F1016] py-20 sm:py-24">
+    <section id="pricing" className="scroll-mt-24 border-b border-border bg-surface py-20 sm:py-24">
       <Container>
         <div className="mx-auto max-w-2xl text-center">
-          <p className="mb-4 text-xs font-medium uppercase tracking-[0.2em] text-[#8D8D98]">Pricing</p>
-          <h2 className="text-3xl font-semibold tracking-[-0.06em] text-[#EDECF0] sm:text-5xl">
+          <p className="mb-4 text-xs font-medium uppercase tracking-[0.2em] text-muted">Pricing</p>
+          <h2 className="text-3xl font-semibold tracking-[-0.06em] text-foreground sm:text-5xl">
             Simple pricing, no surprises
           </h2>
-          <p className="mt-4 text-base text-[#8D8D98] sm:text-lg">
+          <p className="mt-4 text-base text-muted sm:text-lg">
             Start free. Upgrade when your team needs more history and more control.
           </p>
         </div>
@@ -37,19 +37,19 @@ export function Pricing() {
             return (
               <div
                 key={plan.name}
-                className={`flex h-full min-w-0 flex-col rounded-[24px] border p-6 ${
+                className={`flex h-full min-w-0 flex-col rounded-lg border p-6 ${
                   plan.popular
-                    ? "border-[#5F5AE8]/40 bg-[#15161D] shadow-[0_0_0_1px_rgba(95,90,232,0.2)]"
-                    : "border-[#26262F] bg-[#101117]"
+                    ? "border-accent/40 bg-surface shadow-[0_0_0_1px_var(--color-accent-soft)]"
+                    : "border-border bg-surface-inset"
                 }`}
               >
                 <div className="flex items-start justify-between gap-3">
                   <div>
-                    <h3 className="text-2xl font-semibold text-[#EDECF0]">{plan.name}</h3>
-                    <p className="mt-2 text-sm text-[#8D8D98]">{plan.description}</p>
+                    <h3 className="text-2xl font-semibold text-foreground">{plan.name}</h3>
+                    <p className="mt-2 text-sm text-muted">{plan.description}</p>
                   </div>
                   {plan.popular ? (
-                    <span className="rounded-full border border-[#5F5AE8]/30 bg-[#5F5AE8]/12 px-2.5 py-1 text-[10px] uppercase tracking-[0.14em] text-[#EDECF0]">
+                    <span className="rounded-full border border-accent/30 bg-accent-soft px-2.5 py-1 text-[10px] uppercase tracking-[0.14em] text-foreground">
                       Most popular
                     </span>
                   ) : null}
@@ -57,12 +57,12 @@ export function Pricing() {
 
                 <div className="mt-8 flex items-end gap-2">
                   {price === null ? (
-                    <span className="text-4xl font-semibold tracking-[-0.06em] text-[#EDECF0]">Custom</span>
+                    <span className="text-4xl font-semibold tracking-[-0.06em] text-foreground">Custom</span>
                   ) : (
                     <>
-                      <span className="text-4xl font-semibold tracking-[-0.06em] text-[#EDECF0]">${price}</span>
+                      <span className="text-4xl font-semibold tracking-[-0.06em] text-foreground">${price}</span>
                       {plan.name !== "Free" ? (
-                        <span className="pb-1 text-sm text-[#8D8D98]">{billing}</span>
+                        <span className="pb-1 text-sm text-muted">{billing}</span>
                       ) : null}
                     </>
                   )}
@@ -80,10 +80,10 @@ export function Pricing() {
                   )}
                 </Button>
 
-                <ul className="mt-8 space-y-3 text-sm text-[#EDECF0]">
+                <ul className="mt-8 space-y-3 text-sm text-foreground">
                   {plan.features.map((feature) => (
                     <li key={feature} className="flex items-start gap-3">
-                      <span className="mt-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-[#5F5AE8]/12 text-[#5F5AE8]">
+                      <span className="mt-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-accent-soft text-accent">
                         <Check className="h-3.5 w-3.5" />
                       </span>
                       <span>{feature}</span>

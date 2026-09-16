@@ -34,18 +34,22 @@ const SheetContent = React.forwardRef<
     <SheetPrimitive.Content
       ref={ref}
       className={cn(
-        "fixed z-50 gap-4 bg-[#0B0B10] p-6 shadow-lg transition ease-in-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
-        side === "right" && "inset-y-0 right-0 h-full w-full max-w-sm border-l border-[#26262F]",
-        side === "left" && "inset-y-0 left-0 h-full w-full max-w-sm border-r border-[#26262F]",
-        side === "top" && "inset-x-0 top-0 h-auto border-b border-[#26262F]",
-        side === "bottom" && "inset-x-0 bottom-0 h-auto border-t border-[#26262F]",
+        "fixed z-50 gap-4 bg-background p-6 shadow-lg transition ease-in-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
+        side === "right" && "inset-y-0 right-0 h-full w-full max-w-sm border-l border-border",
+        side === "left" && "inset-y-0 left-0 h-full w-full max-w-sm border-r border-border",
+        side === "top" && "inset-x-0 top-0 h-auto border-b border-border",
+        side === "bottom" && "inset-x-0 bottom-0 h-auto border-t border-border",
         className,
       )}
       {...props}
     >
+      <SheetPrimitive.Title className="sr-only">Navigation menu</SheetPrimitive.Title>
+      <SheetPrimitive.Description className="sr-only">
+        Site sections and account actions
+      </SheetPrimitive.Description>
       {children}
-      <SheetPrimitive.Close className="absolute right-5 top-5 rounded-sm opacity-70 ring-offset-[#0B0B10] transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-[#5F5AE8] focus:ring-offset-2 disabled:pointer-events-none">
-        <X className="h-5 w-5 text-[#EDECF0]" />
+      <SheetPrimitive.Close className="absolute right-5 top-5 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 disabled:pointer-events-none">
+        <X className="h-5 w-5 text-foreground" />
         <span className="sr-only">Close</span>
       </SheetPrimitive.Close>
     </SheetPrimitive.Content>

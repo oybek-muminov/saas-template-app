@@ -1,7 +1,5 @@
 "use client";
 
-import { useId } from "react";
-
 export function PricingToggle({
   yearly,
   onToggle,
@@ -9,40 +7,37 @@ export function PricingToggle({
   yearly: boolean;
   onToggle: (value: boolean) => void;
 }) {
-  const toggleId = useId();
-
   return (
-    <div className="flex items-center justify-center gap-3 rounded-full border border-[#26262F] bg-[#101117] p-1">
+    <div
+      role="radiogroup"
+      aria-label="Billing period"
+      className="flex items-center justify-center gap-3 rounded-full border border-border bg-surface-inset p-1"
+    >
       <button
         type="button"
-        role="switch"
+        role="radio"
         aria-checked={!yearly}
-        aria-label="Monthly billing"
         onClick={() => onToggle(false)}
         className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
-          !yearly ? "bg-[#5F5AE8] text-white" : "text-[#8D8D98]"
+          !yearly ? "bg-accent text-accent-foreground" : "text-muted"
         }`}
       >
         Monthly
       </button>
       <button
         type="button"
-        role="switch"
+        role="radio"
         aria-checked={yearly}
-        aria-label="Yearly billing"
         onClick={() => onToggle(true)}
         className={`relative rounded-full px-4 py-2 text-sm font-medium transition-colors ${
-          yearly ? "bg-[#5F5AE8] text-white" : "text-[#8D8D98]"
+          yearly ? "bg-accent text-accent-foreground" : "text-muted"
         }`}
       >
         Yearly
-        {yearly ? (
-          <span className="ml-2 rounded-full border border-[#5F5AE8]/30 bg-[#5F5AE8]/10 px-1.5 py-0.5 text-[10px] uppercase tracking-[0.16em] text-[#EDECF0]">
-            Save ~20%
-          </span>
-        ) : null}
+        <span className="ml-2 rounded-full border border-accent/30 bg-accent/10 px-1.5 py-0.5 text-[10px] uppercase tracking-[0.16em] text-foreground">
+          Save ~20%
+        </span>
       </button>
-      <input id={toggleId} type="hidden" value={yearly ? "yearly" : "monthly"} readOnly />
     </div>
   );
 }
