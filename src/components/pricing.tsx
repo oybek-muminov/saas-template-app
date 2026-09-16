@@ -76,7 +76,7 @@ export function Pricing() {
                   {plan.name === "Enterprise" ? (
                     <a href={`mailto:${siteConfig.email}`}>{plan.cta}</a>
                   ) : (
-                    <a href="#">{plan.cta}</a>
+                    <a href="/signup">{plan.cta}</a>
                   )}
                 </Button>
 

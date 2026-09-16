@@ -84,7 +84,7 @@ function DashboardMockup() {
 
               <div className="rounded-2xl border border-[#26262F] bg-[#1C1D27] p-4">
                 <div className="mb-4 flex items-center justify-between">
-                  <h3 className="text-sm font-medium text-[#EDECF0]">Live activity</h3>
+                  <p className="text-sm font-medium text-[#EDECF0]">Live activity</p>
                   <span className="rounded-full border border-[#33333F] bg-[#15161D] px-2 py-1 text-[10px] uppercase tracking-[0.16em] text-[#8D8D98]">
                     live
                   </span>
@@ -152,10 +152,10 @@ export function Hero() {
             <FadeUp delay={0.32}>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Button size="lg" asChild>
-                  <a href="#">Start free trial</a>
+                  <a href="/signup">Start free trial</a>
                 </Button>
                 <Button variant="outline" size="lg" asChild>
-                  <a href="#">Book a demo</a>
+                  <a href="/demo">Book a demo</a>
                 </Button>
               </div>
             </FadeUp>

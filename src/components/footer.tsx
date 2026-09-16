@@ -14,6 +14,7 @@ export function Footer() {
   return (
     <footer className="border-t border-[#26262F] bg-[#0B0B10] py-14">
       <Container>
+        <h2 className="sr-only">Footer</h2>
         <div className="grid gap-10 md:grid-cols-[1.3fr_1fr_1fr_1fr]">
           <div>
             <div className="flex items-center gap-3 text-[#EDECF0]">

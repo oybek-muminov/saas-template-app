@@ -87,10 +87,10 @@ export function Navbar() {
 
           <div className="hidden items-center gap-3 md:flex">
             <Button variant="ghost" size="sm" asChild>
-              <Link href="#">Log in</Link>
+              <Link href="/login">Log in</Link>
             </Button>
             <Button size="sm" asChild>
-              <Link href="#">Start free trial</Link>
+              <Link href="/signup">Start free trial</Link>
             </Button>
           </div>
 

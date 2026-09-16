@@ -48,12 +48,12 @@ export function MobileMenu({ onOpenChange }: { onOpenChange?: Dispatch<SetStateA
           ))}
           <div className="mt-4 flex flex-col gap-3 pt-4">
             <Button variant="ghost" className="justify-start px-3 text-left" asChild>
-              <a href="#" onClick={() => setOpen(false)}>
+              <a href="/login" onClick={() => setOpen(false)}>
                 Log in
               </a>
             </Button>
             <Button className="w-full" onClick={() => setOpen(false)} asChild>
-              <a href="#">Start free trial</a>
+              <a href="/signup">Start free trial</a>
             </Button>
           </div>
         </div>

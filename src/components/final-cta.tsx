@@ -16,10 +16,10 @@ export function FinalCta() {
             </p>
             <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
               <Button size="lg" asChild>
-                <a href="#">Start free trial</a>
+                <a href="/signup">Start free trial</a>
               </Button>
               <Button variant="outline" size="lg" asChild>
-                <a href="#">Book a demo</a>
+                <a href="/demo">Book a demo</a>
               </Button>
             </div>
           </div>
