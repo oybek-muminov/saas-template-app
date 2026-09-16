@@ -4,7 +4,6 @@ export const siteConfig = {
   description:
     "Arcline turns scattered deploys, incidents, and metrics into one live picture of how your engineering org is actually running.",
   url: "https://arcline.example.com",
-  ogImage: "https://arcline.example.com/og.png",
   email: "hello@arcline.example.com",
   links: {
     twitter: "https://twitter.com/arcline",

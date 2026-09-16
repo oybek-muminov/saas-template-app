@@ -59,6 +59,8 @@ public/            Static assets
 
 Deploy with Vercel by importing the repository into a new Vercel project. The default Next.js build settings are sufficient; the production command is `npm run build`.
 
+`AGENTS.md` and `CLAUDE.md` are optional local development-tooling instruction files. They are not required by the application and can be excluded from a buyer-facing archive.
+
 ## Placeholder Routes
 
 The template intentionally includes links to routes that are not built in this landing-page package: `/signup`, `/login`, `/demo`, `/docs`, `/about`, `/careers`, `/blog`, `/integrations`, `/changelog`, `/help`, `/community`, `/status`, `/privacy`, `/terms`, and `/security`. Wire these routes to the real authentication, documentation, marketing, support, and legal pages for the finished product.
