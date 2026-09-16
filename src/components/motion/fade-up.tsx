@@ -1,27 +1,19 @@
-"use client";
-
-import { motion, useReducedMotion } from "motion/react";
-import * as React from "react";
+import type { CSSProperties, ReactNode } from "react";
 
 export function FadeUp({
   children,
   className,
   delay = 0,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
   className?: string;
   delay?: number;
 }) {
-  const prefersReducedMotion = useReducedMotion();
+  const style = { "--fade-up-delay": `${delay}s` } as CSSProperties;
 
   return (
-    <motion.div
-      initial={prefersReducedMotion ? false : { opacity: 0, y: 24 }}
-      animate={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay, ease: "easeOut" }}
-      className={className}
-    >
+    <div className={["animate-fade-up", className].filter(Boolean).join(" ")} style={style}>
       {children}
-    </motion.div>
+    </div>
   );
 }
